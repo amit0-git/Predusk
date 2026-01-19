@@ -4,7 +4,7 @@ import Profile from "./models/profile.js";
 import connectDB from "./config/db.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // middleware
 app.use(cors({ origin: "*" }));
@@ -164,7 +164,7 @@ app.get("/api/search", async (req, res) => {
 
 /* ========================= */
 
-app.listen(PORT, async () => {
+app.listen(PORT,  "0.0.0.0",async () => {
   await connectDB();
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });

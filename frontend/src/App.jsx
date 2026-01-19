@@ -5,6 +5,7 @@ import CreateProfile from "./components/createProfile";
 import UpdateProfile from "./components/updateProfile";
 
 export default function App() {
+  
   const location = useLocation();
 
   const [skill, setSkill] = useState("");
