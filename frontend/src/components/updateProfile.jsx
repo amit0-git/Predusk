@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+
 import api from "../api/axios";
 export default function UpdateProfile() {
   const [id, setId] = useState("");
