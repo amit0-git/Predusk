@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CreateProfile from "./components/createProfile";
 import UpdateProfile from "./components/updateProfile";
+import api from "./api/axios";
+
 
 export default function App() {
   
@@ -17,7 +19,7 @@ export default function App() {
 
   const fetchProfiles = async () => {
     try {
-      const res = await axios.get("/api/profile");
+      const res = await api.get("/api/profile");
       setProfiles(res.data);
     } catch (err) {
       console.error(err);
@@ -26,7 +28,7 @@ export default function App() {
 
   const fetchTopSkills = async () => {
     try {
-      const res = await axios.get("/api/skills/top");
+      const res = await api.get("/api/skills/top");
       setTopSkills(res.data);
     } catch (err) {
       console.error(err);
@@ -37,7 +39,7 @@ export default function App() {
     if (!skill) return;
 
     try {
-      const res = await axios.get("/api/projects", {
+      const res = await api.get("/api/projects", {
         params: { skill },
       });
       setProjects(res.data.projects || []);
