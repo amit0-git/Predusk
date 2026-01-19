@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect("mongodb+srv://amit:amit@zest.g3nw0.mongodb.net/?appName=Zest");
 
     console.log("✅ MongoDB connected");
   } catch (error) {
