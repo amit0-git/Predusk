@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import api from "../api/axios"
 export default function CreateProfile() {
   const [form, setForm] = useState({
     name: "",
@@ -19,7 +19,7 @@ export default function CreateProfile() {
   const submit = async (e) => {
     e.preventDefault();
 
-    await axios.post("/api/profile", {
+    await api.post("/api/profile", {
       name: form.name,
       email: form.email,
       education: form.education,

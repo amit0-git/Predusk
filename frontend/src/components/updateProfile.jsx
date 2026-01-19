@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import api from "./api/axios";
 export default function UpdateProfile() {
   const [id, setId] = useState("");
   const [form, setForm] = useState({
@@ -12,7 +12,7 @@ export default function UpdateProfile() {
   const submit = async (e) => {
     e.preventDefault();
 
-    await axios.patch(`/api/profile/${id}`, {
+    await api.patch(`/api/profile/${id}`, {
       education: form.education,
       skills: form.skills
         ? form.skills.split(",").map(s => s.trim())
