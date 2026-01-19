@@ -10,6 +10,14 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+
+
+
+
+app.get("/", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.get("/health", (req, res) => {
   res.send("Server running......");
 });
@@ -164,7 +172,10 @@ app.get("/api/search", async (req, res) => {
 
 /* ========================= */
 
-app.listen(PORT,  "0.0.0.0",async () => {
-  await connectDB();
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("🚀 Server started on port", PORT);
 });
+
+connectDB()
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => console.error("❌ MongoDB error", err));
